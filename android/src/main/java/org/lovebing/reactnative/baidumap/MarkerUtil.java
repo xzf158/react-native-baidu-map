@@ -25,7 +25,12 @@ public class MarkerUtil {
     }
 
     public static Marker addMarker(MapView mapView, ReadableMap option) {
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_gcoding);
+        BitmapDescriptor bitmap;
+        if(option.getString("title").equals("您的位置")){
+            bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.current);
+        }else{
+            bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.store);
+        }
         LatLng position = getLatLngFromOption(option);
         OverlayOptions overlayOptions = new MarkerOptions()
                 .icon(bitmap)
