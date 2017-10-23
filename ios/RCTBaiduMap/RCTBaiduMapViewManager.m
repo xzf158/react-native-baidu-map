@@ -108,7 +108,11 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation {
     if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
         BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
-        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        if([[[newAnnotationView annotation] title] isEqualToString:@"您的位置"]){
+            newAnnotationView.pinColor = BMKPinAnnotationColorRed;
+        }else{
+            newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        }
         newAnnotationView.animatesDrop = YES;
         return newAnnotationView;
     }
