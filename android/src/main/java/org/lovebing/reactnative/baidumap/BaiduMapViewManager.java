@@ -251,15 +251,15 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
         map.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                if(marker.getTitle().length() > 0) {
-                    mMarkerText.setText(marker.getTitle());
-                    InfoWindow infoWindow = new InfoWindow(mMarkerText, marker.getPosition(), -80);
-                    mMarkerText.setVisibility(View.GONE);
-                    mapView.getMap().showInfoWindow(infoWindow);
-                }
-                else {
-                    mapView.getMap().hideInfoWindow();
-                }
+                // if(marker.getTitle().length() > 0) {
+                //     mMarkerText.setText(marker.getTitle());
+                //     InfoWindow infoWindow = new InfoWindow(mMarkerText, marker.getPosition(), -80);
+                //     mMarkerText.setVisibility(View.GONE);
+                //     mapView.getMap().showInfoWindow(infoWindow);
+                // }
+                // else {
+                //     mapView.getMap().hideInfoWindow();
+                // }
                 WritableMap writableMap = Arguments.createMap();
                 WritableMap position = Arguments.createMap();
                 position.putDouble("latitude", marker.getPosition().latitude);
